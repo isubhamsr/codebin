@@ -1,0 +1,32 @@
+<div class="card container" style="width: 28rem;">
+    <div class="card-body">
+        <h5 class="card-title text-center">login</h5>
+        <form class="row g-3" [formGroup]="loginForm">
+
+ 
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com"
+                    [formControl]="email">
+            </div>
+            <div [hidden]="email.valid || email.untouched" class="alert alert-danger" role="alert">
+                Enter Correct Email
+            </div>
+
+            <div class="mb-3">
+                <label for="exampleFormControlInput2" class="form-label">Password</label>
+                <input type="password" class="form-control" id="exampleFormControlInput2" placeholder="Enter Password"
+                    [formControl]="password">
+            </div>
+            <div [hidden]="password.valid || password.untouched" class="alert alert-danger" role="alert">
+                Password Shouldbe > 6
+            </div>
+
+            <div class="col-auto">
+                <button [disabled]="loginForm.invalid" type="submit" class="btn btn-primary mb-3"
+                    (click)="onLogin()">Login</button>
+            </div>
+
+        </form>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+<div class="card container" style="width: 28rem;">
+    <div class="card-body">
+        <h5 class="card-title text-center">Signup</h5>
+        <form class="row g-3" #registerForm="ngForm">
+
+ 
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" name="email"
+                    ngModel #email="ngModel" required>
+            </div>
+            <div [hidden]="email.valid || email.untouched" class="alert alert-danger" role="alert">
+                Enter Correct Email
+            </div>
+
+            <div class="mb-3">
+                <label for="exampleFormControlInput2" class="form-label">Password</label>
+                <input type="password" class="form-control" id="exampleFormControlInput2" placeholder="Enter Password" name="password"
+                ngModel #password="ngModel" required>
+            </div>
+            <div [hidden]="password.valid || password.untouched" class="alert alert-danger" role="alert">
+                Password Shouldbe > 6
+            </div>
+
+            <div class="col-auto">
+                <button [disabled]="registerForm.invalid" type="submit" class="btn btn-primary mb-3"
+                    (click)="onSignup(registerForm)">Signup</button>
+            </div>
+
+        </form>
+    </div>
+</div>
