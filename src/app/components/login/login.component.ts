@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AuthService } from '../../services/auth.service';
+import { Router } from 'express';
 
 @Component({
   selector: 'app-login',
@@ -9,6 +11,8 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
+
+  // constructor(private authService:AuthService, private route:Router){}
 
   email = new FormControl("",[
     Validators.required,
@@ -28,6 +32,6 @@ export class LoginComponent {
 
   onLogin(){
     console.log(this.loginForm.value );
-    
+    // this.authService.login(this.loginForm.value.email, this.loginForm.value.password)
   }
 }

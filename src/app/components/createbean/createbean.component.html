@@ -1,0 +1,37 @@
+<div class="card container" style="width: 28rem;">
+    <div class="card-body">
+        <h5 class="card-title text-center">Create</h5>
+        <form class="row g-3" [formGroup]="createForm">
+
+ 
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Title</label>
+                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Title"
+                    [formControl]="title">
+            </div>
+            <div [hidden]="title.valid || title.untouched" class="alert alert-danger" role="alert">
+                Title is Requre
+            </div>
+
+            <div class="mb-3">
+                <label for="exampleFormControlInput2" class="form-label">Code</label>
+                <textarea type="text" class="form-control" id="exampleFormControlInput2" placeholder="Enter Code"
+                    [formControl]="code"></textarea>
+            </div>
+            <div [hidden]="code.valid || code.untouched" class="alert alert-danger" role="alert">
+                Password Shouldbe > 6
+            </div>
+
+            <div class="col-auto">
+                <button [disabled]="createForm.invalid" type="submit" class="btn btn-primary mb-3"
+                    (click)="onSubmit()">Create</button>
+            </div>
+
+            <div class="col-auto">
+                <button [disabled]="createForm.invalid" type="submit" class="btn btn-danger mb-3"
+                    (click)="onReset()">Reset</button>
+            </div>
+
+        </form>
+    </div>
+</div>

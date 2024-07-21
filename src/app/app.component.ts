@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
+import { initializeApp } from "firebase/app";
+import { firebaseConfig } from '../../firebaseconfig';
+
 
 @Component({
   selector: 'app-root',
@@ -10,5 +13,10 @@ import { HeaderComponent } from './components/header/header.component';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
+  
+  
+  constructor(){
+    initializeApp(firebaseConfig);
+  }
   title = 'codebin';
 }
